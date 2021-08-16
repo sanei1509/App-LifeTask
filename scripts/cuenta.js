@@ -42,3 +42,30 @@ const setUser = (e) => {
 };
 
 // en base a tutorial en youtube sobre localStorage use
+// Creamos un container en donde podamos ver donde añadimos elementos
+
+var elements = [];
+
+// crear elementos
+const addElement = function () {
+  if (document.querySelector(".addText").value.trim() != "") {
+    elements.push(document.querySelector(".addTxt").value.trim());
+    // sino hay datos guardados
+    if (localStorage.getItem("account-users") == null) {
+      localStorage.setItem("account-users", JSON.stringify(elements));
+    } else {
+      // pero si hay datos guardados debemos mostrarlos
+    }
+  }
+};
+const display = function () {
+  document.querySelector(".container").innerHTML = "";
+  // recorremos nuestro array
+  for (var i = 0; i < elements.length; i++)
+    document.querySelector(".container").innerHTML += elements[i];
+};
+
+const borrar = function (index) {
+  elements.slice(index, 1);
+  display();
+};

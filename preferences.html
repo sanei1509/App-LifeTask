@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootswatch minty -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.1/dist/minty/bootstrap.min.css"
+        integrity="sha256-cgt3hF1c3FZ6WVory/sZ9YX5EH/xvfIh3QXJ8EjHMqE=" crossorigin="anonymous" /> -->
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+
+    <!-- Iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/maps.css" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <title>LifeTask</title>
+  </head>
+
+  <body onload="initialLoad()">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          LifeTask <i class="bi bi-check2-circle"></i>
+        </a>
+
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-collapse"
+          aria-controls="navbar-collapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Mis tareas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stats.html">Estadísticas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="preferences.html">Preferencias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="indexL.html">Cerrar sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mb-5">
+      <div class="bg-light p-4 rounded">
+        <div class="input-group mb-4">
+          <input
+            id="search-keywords"
+            type="text"
+            class="form-control"
+            placeholder="Terminos de busqueda ..."
+          />
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="applySearchFilter()"
+          >
+            Buscar
+          </button>
+        </div>
+
+        
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Masonry -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    <!-- Embalaje CDN -->
+    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+
+    <!-- Chartsjs -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"
+      integrity="sha256-GMN9UIJeUeOsn/Uq4xDheGItEeSpI5Hcfp/63GclDZk="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fakerjs -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"
+      integrity="sha256-ItysnEXzZySzG3n8oL357uAk+51hKjTF4yHeZWwoQwU="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom scripts -->
+    <script src="scripts/general.js"></script>
+    <script src="scripts/todos.js"></script>
+    <script src="scripts/maps.js"></script>
+
+    <!-- Script que incluye google maps y places -->
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmG55yhL44U5Gry8k2aj8V_RpO3GjA4Fw&callback=googleMapsCallback&libraries=places"
+    ></script>
+  </body>
+</html>

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/maps.css" />
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
     <title>LifeTask</title>
   </head>
 
@@ -28,7 +30,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          LifeTask <i class="bi bi-check2-circle"></i>
+          LifeTask <i class="bi bi-journal-check"></i>
         </a>
 
         <button
@@ -80,17 +82,25 @@
 
         <ul class="nav nav-pills nav-fill mb-4">
           <li class="nav-item">
-            <a class="nav-link active" onclick="applyTypeFilter('MY_DAY')"
+            <a
+              id="filtro"
+              class="nav-link active"
+              onclick="applyTypeFilter('MY_DAY')"
               >Mi día</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="applyTypeFilter('IMPORTANT')"
+            <a
+              id="filtro2"
+              class="nav-link"
+              onclick="applyTypeFilter('IMPORTANT')"
               >Importantes</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="applyTypeFilter('ALL')">Todas</a>
+            <a id="filtro3" class="nav-link" onclick="applyTypeFilter('ALL')"
+              >Todas</a
+            >
           </li>
         </ul>
 
@@ -128,10 +138,10 @@
     </button>
 
     <div class="modal fade" id="todo-creator-modal">
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-center">Crea una tarea</h5>
+            <h5 class="modal-title text-center m-auto">Crea una tarea</h5>
             <button
               type="button"
               class="btn-close"
@@ -140,8 +150,13 @@
             ></button>
           </div>
           <div class="modal-body">
-            <h5>insertar título</h5>
-            <h5>insertar descripción</h5>
+            <label>insertar título</label>
+            <input class="addTitle w-100" type="text" name="titulo" />
+            <label>insertar descripción</label>
+            <textarea
+              class="addDescription w-100"
+              name="descripcion"
+            ></textarea>
           </div>
           <div class="modal-footer">
             <button
@@ -393,7 +408,7 @@
                 bg-primary
               "
             >
-              <i class="bi"></i>
+              <i class="bi bi-check-lg"></i>
             </button>
 
             <button
@@ -408,7 +423,7 @@
                 bg-info
               "
             >
-              <i class="bi bi-eye"></i>
+              <i class="bi bi-fullscreen"></i>
             </button>
 
             <button
@@ -495,6 +510,7 @@
     <script src="scripts/general.js"></script>
     <script src="scripts/todos.js"></script>
     <script src="scripts/maps.js"></script>
+    <script src="scripts/cuenta.js"></script>
 
     <!-- Script que incluye google maps y places -->
     <script

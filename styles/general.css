@@ -1,49 +1,50 @@
-*{
-    outline: none;
+* {
+  outline: none !important;
 }
 
 ::selection {
-    background: #78c2ad3b;
+  background: #343a40;
+  color: #fff;
 }
 
 .loader-overlay {
-    background-color: #d1d1d1c4;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 10000;
-    display: none;
+  background-color: #d1d1d1c4;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  display: none;
 }
 
 .fab {
-    border: none;
-    border-radius: 50%;
+  border: none;
+  border-radius: 50%;
 }
 
 .fab.fab-fixed {
-    width: 60px;
-    height: 60px;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
 }
 
 .fab.fab-mini {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
-.fab.fab-fixed  > i {
-    font-size: 30px;
+.fab.fab-fixed > i {
+  font-size: 30px;
 }
 
 .fab > i {
-    color: white;
+  color: white;
 }
 
 .card-floating-actions {
-    position: absolute;
-    left: -20px;
-    bottom: -20px;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
 }
