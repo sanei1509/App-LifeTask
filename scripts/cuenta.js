@@ -55,6 +55,7 @@ const addElement = function () {
       localStorage.setItem("account-users", JSON.stringify(elements));
     } else {
       // pero si hay datos guardados debemos mostrarlos
+      localStorage.setItem("account-users", JSON.stringify(elements));
     }
   }
 };
