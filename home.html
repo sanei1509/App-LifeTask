@@ -26,6 +26,11 @@
     <title>LifeTask</title>
   </head>
 
+  <!-- normalize -->
+  <link
+    rel="stylesheet"
+    href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+  />
   <body onload="initialLoad()">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
@@ -64,15 +69,15 @@
 
     <main class="container mb-5">
       <div class="bg-light p-4 rounded">
-        <div class="input-group mb-4">
+        <div class="input-group mb-4 shadow-lg">
           <input
             id="search-keywords"
             type="text"
-            class="form-control"
-            placeholder="Terminos de busqueda ..."
+            class="form-control btn-light border-dark shadow"
+            placeholder="Busca tareas aqui..."
           />
           <button
-            class="btn btn-secondary"
+            class="btn btn-dark"
             type="button"
             onclick="applySearchFilter()"
           >
@@ -80,13 +85,16 @@
           </button>
         </div>
 
+        <p class="filter-message text-center text-black-50">
+          Filtra tus tareas por importancia
+        </p>
         <ul class="nav nav-pills nav-fill mb-4">
           <li class="nav-item">
             <a
               id="filtro"
               class="nav-link active"
               onclick="applyTypeFilter('MY_DAY')"
-              >Mi día</a
+              >Todas</a
             >
           </li>
           <li class="nav-item">
@@ -99,7 +107,7 @@
           </li>
           <li class="nav-item">
             <a id="filtro3" class="nav-link" onclick="applyTypeFilter('ALL')"
-              >Todas</a
+              >Media / Baja</a
             >
           </li>
         </ul>
@@ -131,6 +139,7 @@
         justify-content-center
         align-items-center
         bg-success
+        shadow-lg
       "
       onclick="openTodoCreatorModal()"
     >
@@ -151,12 +160,51 @@
           </div>
           <div class="modal-body">
             <label>insertar título</label>
-            <input class="addTitle w-100" type="text" name="titulo" />
+            <input
+              class="addTitle w-100"
+              type="text"
+              name="titulo"
+              id="title-tarea"
+            />
             <label>insertar descripción</label>
             <textarea
               class="addDescription w-100"
               name="descripcion"
+              id="description-tarea"
             ></textarea>
+
+            <div class="priority-container">
+              <p class="text-center text-black-50 mt-3">
+                Elige la prioridad de tu tarea
+              </p>
+              <div class="form-check">
+                <label for="highPriority">Alta</label>
+                <input
+                  name="priority"
+                  type="radio"
+                  id="highPriority"
+                  value="Alta"
+                />
+              </div>
+              <div class="form-check">
+                <label for="mediaPriority">Media</label>
+                <input
+                  name="priority"
+                  type="radio"
+                  id="mediaPriority"
+                  value="Media"
+                />
+              </div>
+              <div class="form-check">
+                <label for="lowPriority">Baja</label>
+                <input
+                  name="priority"
+                  type="radio"
+                  id="lowPriority"
+                  value="Baja"
+                />
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -180,7 +228,7 @@
 
     <!-- Modal para ver y editar tareas -->
     <div class="modal fade" id="todo-view-modal">
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5
@@ -506,7 +554,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Custom scripts -->
+    <!-- Custom scripts -->>
     <script src="scripts/general.js"></script>
     <script src="scripts/todos.js"></script>
     <script src="scripts/maps.js"></script>

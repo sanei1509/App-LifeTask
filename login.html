@@ -12,6 +12,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- estilos -->
+    <link rel="stylesheet" href="styles/formularios.css" />
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,21 +67,31 @@
           <h2 class="fw-bold text-center py-5 shadow">Bienvenido</h2>
 
           <!-- LOGIN -->
-          <form action="#">
+          <form id="formularioLogin" action="">
             <div class="mb-4">
               <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" name="email" />
+              <input
+                id="correo"
+                type="email"
+                class="form-control"
+                name="email"
+              />
             </div>
             <div class="mb-4">
               <label for="email" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" name="password" />
+              <input
+                id="contraseña"
+                type="password"
+                class="form-control"
+                name="password"
+              />
             </div>
-            <div class="mb-4 form-check">
+            <!-- <div class="mb-4 form-check">
               <input type="checkbox" name="connected" id="form-check-input" />
               <label for="connected" class="form-check-label"
                 >Mantener sesión iniciada siempre</label
               >
-            </div>
+            </div> -->
 
             <div class="d-grid">
               <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
@@ -90,9 +102,6 @@
                 >Aún no tienes cuenta?
                 <a href="register.html">Registrarme</a></span
               >
-            </div>
-            <div class="my-1 text-center">
-              <span><a href="#">Recuperar Contraseña</a></span>
             </div>
           </form>
 
@@ -147,6 +156,11 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+  <!-- iconos -->
+  <script
+    src="https://kit.fontawesome.com/2c36e9b7b1.js"
+    crossorigin="anonymous"
+  ></script>
   <!-- custom script -->
-  <script src="./scripts/cuenta.js"></script>
+  <script src="./scripts/cuenta/login.js"></script>
 </html>

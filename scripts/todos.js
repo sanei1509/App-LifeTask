@@ -155,7 +155,7 @@ function fetchToDos() {
           title: faker.commerce.productName(),
           content: faker.commerce.productDescription(),
           completed: faker.datatype.boolean(),
-          priority: priority.LOW,
+          priority: priority.HIGH,
           dueDate: dueDate,
           category: "",
           location: {
