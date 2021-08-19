@@ -35,6 +35,8 @@ formularioRegistro.addEventListener("submit", function (e) {
 
     localStorage.setItem(correo, JSON.stringify(cuenta));
     alert("registradoCorrectamente");
+    // redirigimos a Inicio de sesión
+    window.location.pathname = "/login.html";
   } else {
     alert("Las claves no coinciden");
   }

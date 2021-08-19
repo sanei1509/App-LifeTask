@@ -74,8 +74,9 @@ const regularFilter = function (element) {
 
 function applyTypeFilter(filterType) {
   switch (filterType) {
-    case "MY_DAY":
-      // TODO: Aplicar filtro de tareas diarias
+    case "ALL":
+      // TODO: Mostrar todas las tareas
+
       filtro1.classList.toggle("active");
       regularFilter(filtro2);
       regularFilter(filtro3);
@@ -86,8 +87,8 @@ function applyTypeFilter(filterType) {
       regularFilter(filtro1);
       regularFilter(filtro3);
       break;
-    case "ALL":
-      // TODO: Mostrar todas las tareas
+    case "NORMAL":
+      // TODO: Aplicar filtro de tareas diarias
       filtro3.classList.toggle("active");
       regularFilter(filtro1);
       regularFilter(filtro2);
@@ -221,7 +222,9 @@ function renderToDos() {
 
         // Agregamos evento que oculta las acciones cuando el mouse sale de la card
         todoCloneCardElement.addEventListener("mouseleave", () => {
-          todoCloneActionsElement.classList.add("d-none");
+          setTimeout(function () {
+            todoCloneActionsElement.classList.add("d-none");
+          }, 500);
         });
 
         // Agregamos evento para cambiar el estado de una tarea (completa / no completa)

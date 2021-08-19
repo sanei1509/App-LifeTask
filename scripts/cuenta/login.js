@@ -14,6 +14,8 @@ formularioLogin.addEventListener("submit", function (e) {
 
   if (cuenta.contraseña === loginPassword) {
     console.log("Iniciando sesiónn..");
+    // Mandamos al usuario a la HOME
+    window.location.pathname = "/home.html";
   } else {
     console.log("datosIncorrectos");
   }

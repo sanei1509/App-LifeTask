@@ -60,7 +60,9 @@
               <a class="nav-link" href="preferences.html">Preferencias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="indexL.html">Cerrar sesión</a>
+              <a class="nav-link text-danger float-end" href="indexL.html"
+                >Cerrar sesión</a
+              >
             </li>
           </ul>
         </div>
@@ -93,7 +95,7 @@
             <a
               id="filtro"
               class="nav-link active"
-              onclick="applyTypeFilter('MY_DAY')"
+              onclick="applyTypeFilter('ALL')"
               >Todas</a
             >
           </li>
@@ -106,7 +108,7 @@
             >
           </li>
           <li class="nav-item">
-            <a id="filtro3" class="nav-link" onclick="applyTypeFilter('ALL')"
+            <a id="filtro3" class="nav-link" onclick="applyTypeFilter('NORMAL')"
               >Media / Baja</a
             >
           </li>
@@ -119,7 +121,7 @@
         ></div>
 
         <div id="create-new-todo-hint" class="d-none">
-          <p>Aun no hay tareas creadas :(</p>
+          <p>Aun no hay tareas creadas <i class="bi bi-emoji-frown"></i></p>
         </div>
       </div>
     </main>
@@ -209,7 +211,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-danger"
               data-bs-dismiss="modal"
             >
               Cerrar
@@ -384,7 +386,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-danger"
               data-bs-dismiss="modal"
             >
               Cerrar
@@ -417,7 +419,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-warning"
               data-bs-dismiss="modal"
             >
               Cerrar
@@ -558,7 +560,7 @@
     <script src="scripts/general.js"></script>
     <script src="scripts/todos.js"></script>
     <script src="scripts/maps.js"></script>
-    <script src="scripts/cuenta.js"></script>
+    <script src="scripts/cuenta/tareas.js"></script>
 
     <!-- Script que incluye google maps y places -->
     <script
