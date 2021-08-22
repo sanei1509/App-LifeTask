@@ -181,11 +181,18 @@ const loin_inputPassword = document.getElementById("contraseña");
 
 /* tareas */
 //principales
+const formularioTareas = document.getElementById("formulario_tareas");
 const titulo = document.getElementById("title-tarea");
 const descripcion = document.getElementById("description-tarea");
 const prioridad = document.querySelector(
   'input[name = "priority"]:checked'
 ).value;
+
+// funcionamiento
+formularioTareas.addEventListener("submit", function (e) {
+  e.preventDefault;
+  alert("holass");
+});
 
 //opcionales
 // const ubicacion;
