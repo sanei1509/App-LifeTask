@@ -25,6 +25,8 @@ formularioTareas.addEventListener("submit", function (e) {
     taskPriority: taskPriority,
   };
 
+  userAccount[0].tareas.push(tarea);
+
   console.log(titleText);
   console.log(descriptionText);
   console.log(taskPriority);
@@ -39,7 +41,7 @@ formularioTareas.addEventListener("submit", function (e) {
 
   // funcion de pintar tarea según la prioridad
   function colorear() {
-    if (taskPriority == "Alta") {
+    if (tarea.taskPriority === "Alta") {
       console.log("cambiando clase a rojo de tarea en especifico");
     }
   }

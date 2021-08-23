@@ -1,5 +1,10 @@
 // Variables globales
-let user;
+let userAccount = JSON.parse(localStorage.getItem("user"));
+let tareas = localStorage.getItem("userTareas");
+
+console.log(userAccount);
+console.log(tareas);
+
 let todos = [];
 
 showLoader();
@@ -224,7 +229,7 @@ function renderToDos() {
         todoCloneCardElement.addEventListener("mouseleave", () => {
           setTimeout(function () {
             todoCloneActionsElement.classList.add("d-none");
-          }, 500);
+          }, 100);
         });
 
         // Agregamos evento para cambiar el estado de una tarea (completa / no completa)

@@ -25,6 +25,7 @@ formularioRegistro.addEventListener("submit", function (e) {
     let cuenta = {
       correo: correo,
       contraseña: String(contraseña),
+      tareas: [],
       //   contraseña2: String(contraseña), /* no es necesario guardarla */
     };
 
@@ -34,7 +35,7 @@ formularioRegistro.addEventListener("submit", function (e) {
     console.log(cuenta);
 
     localStorage.setItem(correo, JSON.stringify(cuenta));
-    alert("registradoCorrectamente");
+    alert(localStorage.getItem(cuenta.correo) + "registrado correctamente");
     // redirigimos a Inicio de sesión
     window.location.pathname = "/login.html";
   } else {
