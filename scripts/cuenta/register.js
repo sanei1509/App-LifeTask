@@ -1,5 +1,6 @@
 //obtenemos datos
 const formularioRegistro = document.getElementById("formulario");
+const inputUserName = document.getElementById("username");
 const inputCorreo = document.getElementById("email");
 const inputPassword1 = document.getElementById("password");
 const inputPassword2 = document.getElementById("password2");
@@ -11,10 +12,14 @@ const cuentas = [];
 formularioRegistro.addEventListener("submit", function (e) {
   e.preventDefault();
   //   var titulo = document.querySelector("#addpelicula").value;
+  let username = inputUserName.value;
   let correo = inputCorreo.value;
   let contraseña = inputPassword1.value;
   let contraseña2 = inputPassword2.value;
 
+  if(correo != "" && contraseña != "" && contraseña2 != "" && username != ""){
+  
+  
   if (contraseña === contraseña2) {
     //comprobamos no este registrado
     if (localStorage.getItem(correo)) {
@@ -23,6 +28,7 @@ formularioRegistro.addEventListener("submit", function (e) {
     }
     // Armamos el objeto a conveniencia
     let cuenta = {
+      // nombre de user o simplemente nombre
       correo: correo,
       contraseña: String(contraseña),
       tareas: [],
@@ -37,10 +43,14 @@ formularioRegistro.addEventListener("submit", function (e) {
     localStorage.setItem(correo, JSON.stringify(cuenta));
     alert(localStorage.getItem(cuenta.correo) + "registrado correctamente");
     // redirigimos a Inicio de sesión
-    window.location.pathname = "/login.html";
+    window.location.pathname = "./registerNew/login2.html";
   } else {
     alert("Las claves no coinciden");
   }
+
+}else{
+  alert('debe completar todos los campos')
+}
 
   //   let cuenta = {};
 

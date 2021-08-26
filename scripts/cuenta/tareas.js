@@ -5,6 +5,11 @@ const titulo = document.getElementById("title-tarea");
 const descripcion = document.getElementById("description-tarea");
 const prioridad = document.querySelector('input[name = "priority"]');
 
+
+// traemos el user del localStorage
+const usuario = JSON.parse(localStorage.getItem('user'));
+console.log(usuario)
+
 formularioTareas.addEventListener("submit", function (e) {
   e.preventDefault();
   //   var titulo = document.querySelector("#addpelicula").value;
@@ -20,24 +25,34 @@ formularioTareas.addEventListener("submit", function (e) {
   //   }
   // Armamos el objeto a conveniencia
   let tarea = {
+    id: '',
     titleText: String(titleText),
     descriptionText: String(descriptionText),
     taskPriority: taskPriority,
+    completed: false// boolean falso por defecto
   };
 
-  userAccount[0].tareas.push(tarea);
+  
+
+ 
+  usuario[0].tareas.push((tarea));
+  localStorage.setItem('user', JSON.stringify(usuario[0]));
+
+
+  
+  // actualizamos para guardar cambios en LOCALSTORAGE
+  
 
   console.log(titleText);
   console.log(descriptionText);
   console.log(taskPriority);
   console.log(tarea);
 
-  //   localStorage.setItem(correo, JSON.stringify(cuenta));
-  //   alert("registradoCorrectamente");
-  // Mostramos las tareas
-  //   } else {
-  //   alert("Las claves no coinciden");
-  //   }
+  // Luego de haber almacenado en todos.js
+  // location.reload();
+
+  // limpiamos
+  descriptionText, titleText, taskPriority = "";
 
   // funcion de pintar tarea según la prioridad
   function colorear() {

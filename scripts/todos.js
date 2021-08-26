@@ -1,9 +1,24 @@
-// Variables globales
+// Variables globales // solicitudes al localStorage
 let userAccount = JSON.parse(localStorage.getItem("user"));
-let tareas = localStorage.getItem("userTareas");
+let tareas = localStorage.getItem("tareas");
+
 
 console.log(userAccount);
-console.log(tareas);
+// console.log(userAccount[0].tareas[1]);
+let title = userAccount.tareas[0].titleText;
+let descripcion = userAccount.tareas[0].descriptionText;
+let prioridad = userAccount.tareas[0].taskPriority;
+
+// for(let i = 0; i <= userAccount.tareas.length; i++){
+//   console.log(userAccount.tareas[i]);
+// }
+
+let todo = [];
+userAccount.tareas.forEach(tarea => (
+  todo.push(tarea)
+  
+));
+console.log(todo);
 
 let todos = [];
 
@@ -171,6 +186,7 @@ function fetchToDos() {
           files: files,
           subTasks: subTasks,
         });
+        // modificación
       }
 
       resolve();
