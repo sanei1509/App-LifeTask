@@ -52,12 +52,33 @@ const PintarTareas = (dataUser) => {
     const changeStatusIconElement =
       todoCloneChangeTodoStatusButtonElement.querySelector("i.bi");
     
+        // ##########################################
+        // Seteo de eventos
+        // ##########################################
+
+        // Agregamos evento que muestra las acciones cuando el mouse entra a la card
+        // todoCloneCardElement.addEventListener("mouseenter", () => {
+        //   todoCloneActionsElement.classList.remove("d-none");
+        // });
+        todoCloneActionsElement.classList.remove("d-none");
 
 
+    //  damos el color según prioridad 
+    if(tarea.priority === "Alta"){
+      todoCloneCardElement.classList.add('border-danger');
+    }
+    if(tarea.priority === "Media"){
+      todoCloneCardElement.classList.add('border-warning');
+    }
+    if(tarea.priority === "Baja"){
+      todoCloneCardElement.classList.add('border-success');
+    }
+
+        
     // Agregamos evento para cambiar el estado de una tarea (completa / no completa)
     todoCloneChangeTodoStatusButtonElement.addEventListener("click", () => {
       tarea.completed = !tarea.completed;
-      renderToDos();
+      PintarTareas(dataLogin);
     });
 
     // Si la tarea esta completada, agregamos una clase para tachar el titulo
@@ -72,7 +93,7 @@ const PintarTareas = (dataUser) => {
    todoCloneTitleElement.innerText = tarea.title;
 
     // Seteamos la descripcion de la tarea en el clon
-    todoCloneTitleElement.innerText = tarea.title;
+    todoCloneContentElement.innerText = tarea.description;
 
     // Agregamos la tarea clonada al contenedor de tareas
     todosContainer.appendChild(todoClone);  
@@ -152,7 +173,9 @@ document.addEventListener('DOMContentLoaded', PintarTareas(dataLogin));
 
 
 
-
+function initialLoad() {
+  PintarTareas(dataLogin);
+}
 
 
 

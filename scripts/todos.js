@@ -10,7 +10,7 @@ let todos = [];
 showLoader();
 
 // Constantes globales
-const numberOfTasksToGenerate = 0;
+const numberOfTasksToGenerate = 2;
 const todoViewModal = new bootstrap.Modal(
   document.getElementById("todo-view-modal")
 );
