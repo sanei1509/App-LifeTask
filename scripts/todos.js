@@ -1,6 +1,6 @@
 // Variables globales
 let userAccount = JSON.parse(localStorage.getItem("user"));
-let tareas = localStorage.getItem("userTareas");
+let tareas = userAccount;
 
 console.log(userAccount);
 console.log(tareas);
@@ -10,7 +10,7 @@ let todos = [];
 showLoader();
 
 // Constantes globales
-const numberOfTasksToGenerate = 10;
+const numberOfTasksToGenerate = 0;
 const todoViewModal = new bootstrap.Modal(
   document.getElementById("todo-view-modal")
 );
@@ -341,6 +341,15 @@ function getTodoBorderClass(todoPriority) {
     default:
       return "border-success";
   }
+}
+
+//Guarda en el local storage
+const GuardarDB = () => {
+  localStorage.setItem('tareas', JSON.stringify(todos))
+}
+//mete las tareas en pantalla
+const MostrarTareas = () => {
+  contenedorTareas.innerHTML = '';
 }
 
 // Crea una tarea

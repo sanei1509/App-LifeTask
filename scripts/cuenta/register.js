@@ -1,3 +1,6 @@
+//globales
+
+
 //obtenemos datos
 const formularioRegistro = document.getElementById("formulario");
 const inputCorreo = document.getElementById("email");

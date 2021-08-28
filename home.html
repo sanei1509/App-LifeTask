@@ -231,7 +231,7 @@
 
     <!-- Modal para ver y editar tareas -->
     <div class="modal fade" id="todo-view-modal">
-      <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
             <h5
@@ -392,7 +392,7 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary btn-edit-todo">
+            <button onclick="closeTodoCreatorModal()" type="button" class="btn btn-primary btn-edit-todo">
               Guardar
             </button>
           </div>
@@ -436,6 +436,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- Template de tarea (card) -->
     <template id="todo-temlpate">
