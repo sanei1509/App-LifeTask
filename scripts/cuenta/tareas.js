@@ -3,6 +3,9 @@
 
 
 
+
+
+
 const todosContainer = document.getElementById("todos-container");
 // funciones a utilizar
 const crearTarea = (title, description, priority) => {
@@ -59,9 +62,21 @@ const PintarTareas = (dataUser) => {
 
     // Agregamos evento para eliminar una tarea
     todoCloneDeleteTodoButtonElement.addEventListener("click", () => {
-      console.log(`eliminando..${tarea.id}`)
-      console.log(userTareas)
-      PintarTareas(dataLogin);
+      let indexArray;
+      //console.log(`eliminando..${tarea.id}`)
+      //console.log(dataLogin.tareas)
+      console.log(tarea)
+      dataLogin.tareas.forEach((elemento, index) => {
+        if(tarea.id === elemento.id){
+          indexArray = index;
+          console.log(indexArray);
+        }
+        
+      })
+     console.log(dataLogin.tareas.splice(indexArray, 1));
+     PintarTareas(dataLogin);
+     // 'Confirmamos los cambios'
+     localStorage.setItem(userMail, JSON.stringify(dataLogin))
     });
 
     // Agregamos evento que muestra las acciones cuando el mouse entra a la card
@@ -215,3 +230,53 @@ function closeTodoCreatorModal() {
   todoCreatorModal.hide();
 }
 
+/**
+ * Filtra las tareas mostradas en la UI basandose en las palabras clave escritas en la caja de busqueda
+ */
+ function applySearchFilter() {
+   //almacenamos los valores que hicieron match
+   var dataLoginResult = [];
+  // Obtenemos el valor de la caja de busqueda, le sacamos espacios de mas y pasamos a minusculas
+
+  // Alternativa 1 (1 linea)
+  // const keywords = document.getElementById('search-keywords').value.trim().toLowerCase()
+
+  // Alternativa 2 (4 lineas)
+  const searchInputElement = document.getElementById("search-keywords");
+  let keywords = searchInputElement.value;
+  keywords = keywords.trim();
+  keywords = keywords.toLowerCase();
+
+
+  if (!keywords) {
+    window.location.reload();
+  } else {
+    dataLogin.tareas.forEach((todo) => {
+      console.log('BINGOU')
+    });
+
+    
+    // Filtra las tareas que hacen match ya sea con el titulo o la descripcion
+    dataLogin.tareas
+      .filter((todo) => {
+        const titleMatch = todo.title.toLowerCase().includes(keywords);
+        const descriptionMatch = todo.description.toLowerCase().includes(keywords);
+
+        return titleMatch || descriptionMatch;
+      })
+      .forEach((todo) => {
+        console.log(todo)
+        dataLoginResult.push(todo)
+      });
+  }
+
+  console.log(dataLoginResult);
+
+  var dataLoginResultConvert = {
+    tareas : dataLoginResult
+  } 
+
+  console.log(dataLoginResultConvert);
+
+  PintarTareas(dataLoginResultConvert);
+}
