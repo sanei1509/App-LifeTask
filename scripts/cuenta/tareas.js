@@ -3,7 +3,6 @@
 
 
 
-
 const todosContainer = document.getElementById("todos-container");
 // funciones a utilizar
 const crearTarea = (title, description, priority) => {
@@ -51,29 +50,50 @@ const PintarTareas = (dataUser) => {
       todoClone.querySelector(".btn-delete-todo");
     const changeStatusIconElement =
       todoCloneChangeTodoStatusButtonElement.querySelector("i.bi");
-    
-        // ##########################################
-        // Seteo de eventos
-        // ##########################################
 
-        // Agregamos evento que muestra las acciones cuando el mouse entra a la card
-        // todoCloneCardElement.addEventListener("mouseenter", () => {
-        //   todoCloneActionsElement.classList.remove("d-none");
-        // });
-        todoCloneActionsElement.classList.remove("d-none");
+    // ##########################################
+    // Seteo de eventos
+    // ##########################################
+
+    // Agregamos evento para ver todos los datos de una tarea
+
+    // Agregamos evento para eliminar una tarea
+    todoCloneDeleteTodoButtonElement.addEventListener("click", () => {
+      console.log(`eliminando..${tarea.id}`)
+      console.log(userTareas)
+      PintarTareas(dataLogin);
+    });
+
+    // Agregamos evento que muestra las acciones cuando el mouse entra a la card
+    // todoCloneCardElement.addEventListener("mouseenter", () => {
+    //   todoCloneActionsElement.classList.remove("d-none");
+    // });
+    todoCloneActionsElement.classList.remove("d-none");
 
 
     //  damos el color según prioridad 
     if(tarea.priority === "Alta"){
-      todoCloneCardElement.classList.add('border-danger');
+      //todoCloneCardElement.classList.add('border-danger');
     }
     if(tarea.priority === "Media"){
-      todoCloneCardElement.classList.add('border-warning');
+      //todoCloneCardElement.classList.add('border-warning');
     }
     if(tarea.priority === "Baja"){
-      todoCloneCardElement.classList.add('border-success');
+      //todoCloneCardElement.classList.add('border-success');
     }
-
+    switch (tarea.priority) {
+      case 'Alta':
+        //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+        break;
+      case 'Media':
+        //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+        break;
+      case 'Baja':
+        //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+        break;
+      default:
+        break;
+    }
         
     // Agregamos evento para cambiar el estado de una tarea (completa / no completa)
     todoCloneChangeTodoStatusButtonElement.addEventListener("click", () => {
@@ -83,8 +103,10 @@ const PintarTareas = (dataUser) => {
 
     // Si la tarea esta completada, agregamos una clase para tachar el titulo
     if (tarea.completed) {
-      todoCloneTitleElement.classList.add("text-decoration-line-through");
+      todoCloneTitleElement.classList.add('text-success');
+      //todoCloneTitleElement.classList.add("text-decoration-line-through");
       changeStatusIconElement.classList.add("bi-x-lg");
+      updateStorage();
     } else {
       changeStatusIconElement.classList.add("bi-check-lg");
     }
@@ -177,6 +199,11 @@ function initialLoad() {
   PintarTareas(dataLogin);
 }
 
+function updateStorage(){
+  let userMail = userAccount[0].correo;
+  let dataLogin = (JSON.parse(localStorage.getItem(userMail)));
+  localStorage.setItem(userMail, JSON.stringify(dataLogin))
+};
 
 
 //abrir el modal
@@ -187,3 +214,4 @@ function openTodoCreatorModal() {
 function closeTodoCreatorModal() {
   todoCreatorModal.hide();
 }
+
