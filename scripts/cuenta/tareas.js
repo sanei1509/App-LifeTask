@@ -23,6 +23,16 @@ const crearTarea = (title, description, priority) => {
   return tarea;
 }
 
+//retirar valor de radio button
+function obtenerPrioridad() { 
+  var i 
+  for (i = 0; i < document.formTasks.priority.length; i++){ 
+     if (document.formTasks.priority[i].checked) {
+        return document.formTasks.priority[i].value;
+  }
+  
+  } }
+
 const PintarTareas = (dataUser) => {
 
   //traemos el container de vacío
@@ -59,6 +69,20 @@ const PintarTareas = (dataUser) => {
     // ##########################################
 
     // Agregamos evento para ver todos los datos de una tarea
+    todoCloneViewTodoButtonElement.addEventListener("click", () => {
+      // dataLogin.tareas.forEach((elemento, index) => {
+      //   if(tarea.id === elemento.id){
+      //     console.log(elemento)
+      //   }
+      let tareaClicked;
+      dataLogin.tareas.forEach((elemento, index) => {
+        if(tarea.id === elemento.id){
+          tareaClicked = elemento;
+        }
+      });
+      // console.log(dataLogin.tareas[])
+      openViewTaskModal(tareaClicked);
+    });
 
     // Agregamos evento para eliminar una tarea
     todoCloneDeleteTodoButtonElement.addEventListener("click", () => {
@@ -113,6 +137,8 @@ const PintarTareas = (dataUser) => {
     // Agregamos evento para cambiar el estado de una tarea (completa / no completa)
     todoCloneChangeTodoStatusButtonElement.addEventListener("click", () => {
       tarea.completed = !tarea.completed;
+      //confirmamos cambios
+      localStorage.setItem(userMail, JSON.stringify(dataLogin))
       PintarTareas(dataLogin);
     });
 
@@ -175,11 +201,13 @@ formularioTareas.addEventListener("submit", function (e) {
 
   let titleText = titulo.value;
   let descriptionText = descripcion.value;
-  let taskPriority = prioridad.value;
+  let taskPriority = obtenerPrioridad();
   
 
   //creamos la tarea con los valores ingresados
   let tarea = crearTarea(titleText, descriptionText, taskPriority);
+  console.log(taskPriority)
+
 
   //let cuentaWtodos = userAccount[0].tareas.push(tarea);
   //actualizamos nuestra DB
@@ -280,3 +308,98 @@ function closeTodoCreatorModal() {
 
   PintarTareas(dataLoginResultConvert);
 }
+
+//variables para filtro
+let dataLoginNormal = [];
+let dataLoginHigh = [];
+let dataHighConvert = {
+  tareas : dataLoginHigh
+};
+let dataNormalConvert = {
+  tareas: dataLoginNormal
+}
+
+//Pildoras de filtro
+function applyTypeFilter(filterType) {
+  switch (filterType) {
+    case "ALL":
+      
+      filtro1.classList.toggle("active");
+      regularFilter(filtro2);
+      regularFilter(filtro3);
+      console.log('mostrando todas');
+      PintarTareas(dataLogin);
+      break;
+    case "IMPORTANT":
+      // TODO: Aplicar filtro de tareas marcadas como importantes
+      filtro2.classList.toggle("active");
+      regularFilter(filtro1);
+      regularFilter(filtro3);
+
+      console.log('mostrando prioridad Alta');
+      dataLogin.tareas.forEach((tarea) => {
+        if(tarea.priority === 'Alta')
+        dataLoginHigh.push(tarea);
+      })
+      PintarTareas(dataHighConvert);
+      break;
+    case "NORMAL":
+      // TODO: Aplicar filtro de tareas diarias
+      filtro3.classList.toggle("active");
+      regularFilter(filtro1);
+      regularFilter(filtro2);
+
+      dataLogin.tareas.forEach((tarea) => {
+        if(tarea.priority === 'Baja' ||  tarea.priority === 'Media')
+        dataLoginNormal.push(tarea);
+      })
+      PintarTareas(dataNormalConvert);
+      
+      break;
+    default:
+      console.error("Filtro no soportado");
+      break;
+  }
+}
+
+
+// Abre el modal de vista de tarea
+function openViewTaskModal(todo) {
+  const modalElement = document.getElementById("todo-view-modal");
+  const titleElement = modalElement.querySelector(".modal-title");
+  const contentElement = modalElement.querySelector(".modal-task-content");
+  const editTodoButtonElement = modalElement.querySelector(".btn-edit-todo");
+  const createSubTaskButtonElement = modalElement.querySelector(
+    ".btn-create-sub-task"
+  );
+
+  const subTaskTemplate = document.getElementById("todo-sub-task-template");
+  const subTaskContainerElement = modalElement.querySelector(
+    ".modal-subtask-container"
+  );
+
+  // Seteamos titulo y contenido de la tarea
+  titleElement.innerText = todo.title;
+  contentElement.value = todo.description;
+
+  // Marcamos el texto del titulo si la tarea esta completada
+  if (todo.completed) {
+    titleElement.classList.add('text-success');
+  } else {
+    titleElement.classList.remove('text-success');
+  }
+
+  // Agregamos evento click al boton guardar todo
+  editTodoButtonElement.onclick = () => {
+    // Actualizamos la tarea con los nuevos valores
+    todo.title = titleElement.innerText;
+    todo.content = contentElement.value;
+
+    // TODO: Actualizar el estado de la sub-tareas
+
+    // Refrescamos la UI luego de guardar los nuevos valores
+    renderToDos();
+
+    // Cerramos el modal
+    todoViewModal.hide();
+  }};
