@@ -5,7 +5,9 @@
 
 
 
-
+const todoViewModal = new bootstrap.Modal(
+  document.getElementById("todo-view-modal")
+);
 const todosContainer = document.getElementById("todos-container");
 // funciones a utilizar
 const crearTarea = (title, description, priority) => {
@@ -80,8 +82,10 @@ const PintarTareas = (dataUser) => {
           tareaClicked = elemento;
         }
       });
-      // console.log(dataLogin.tareas[])
-      openViewTaskModal(tareaClicked);
+      console.log(tareaClicked)
+
+      todoViewModal.show();
+      openViewTaskModal(tareaClicked)
     });
 
     // Agregamos evento para eliminar una tarea
@@ -112,13 +116,18 @@ const PintarTareas = (dataUser) => {
 
     //  damos el color según prioridad 
     if(tarea.priority === "Alta"){
-      //todoCloneCardElement.classList.add('border-danger');
+      todoCloneCardElement.classList.add('border-3');
+      todoCloneCardElement.classList.add('border-danger');
     }
     if(tarea.priority === "Media"){
-      //todoCloneCardElement.classList.add('border-warning');
+      todoCloneCardElement.classList.add('border-3');
+      todoCloneCardElement.classList.add('border-warning');
+      
     }
     if(tarea.priority === "Baja"){
-      //todoCloneCardElement.classList.add('border-success');
+      todoCloneCardElement.classList.add('border-3');
+
+      todoCloneCardElement.classList.add('border-none');
     }
     switch (tarea.priority) {
       case 'Alta':
@@ -393,12 +402,14 @@ function openViewTaskModal(todo) {
   editTodoButtonElement.onclick = () => {
     // Actualizamos la tarea con los nuevos valores
     todo.title = titleElement.innerText;
-    todo.content = contentElement.value;
+    todo.description = contentElement.value;
 
     // TODO: Actualizar el estado de la sub-tareas
 
     // Refrescamos la UI luego de guardar los nuevos valores
-    renderToDos();
+    PintarTareas(dataLogin);
+    localStorage.setItem(userMail, JSON.stringify(dataLogin))
+
 
     // Cerramos el modal
     todoViewModal.hide();
