@@ -32,7 +32,7 @@
     href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
   />
   <body onload="initialLoad()">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           LifeTask <i class="bi bi-journal-check"></i>
@@ -141,7 +141,6 @@
         justify-content-center
         align-items-center
         bg-success
-        shadow-lg
       "
       onclick="openTodoCreatorModal()"
     >
@@ -441,8 +440,8 @@
 
     <!-- Template de tarea (card) -->
     <template id="todo-temlpate">
-      <div class="col ">
-        <div class="card text-white-50 bg-dark mb-3">
+      <div class="col">
+        <div class="card text-dark bg-white mb-3 shadow">
           <div class="card-body">
             <h4 class="card-title"><!-- Titulo --></h4>
             <p class="card-text"><!-- Contenido --></p>
@@ -462,7 +461,7 @@
                 shadow-lg
               "
             >
-              <i class="bi bi-check-lg"></i>
+              <i class="bi bi-check-lg shadow"></i>
             </button>
 
             <button
@@ -478,7 +477,7 @@
                 shadow-lg
               "
             >
-              <i class="bi bi-fullscreen"></i>
+              <i class="bi bi-fullscreen shadow"></i>
             </button>
 
             <button
@@ -494,7 +493,7 @@
                 shadow-lg
               "
             >
-              <i class="bi bi-trash"></i>
+              <i class="bi bi-trash shadow"></i>
             </button>
           </div>
         </div>
@@ -562,7 +561,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Custom scripts -->>
+    <!-- Custom scripts -->
     <script src="scripts/general.js"></script>
     <script src="scripts/todos.js"></script>
     <script src="scripts/maps.js"></script>

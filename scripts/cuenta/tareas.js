@@ -154,6 +154,8 @@ const PintarTareas = (dataUser) => {
     // Si la tarea esta completada, agregamos una clase para tachar el titulo
     if (tarea.completed) {
       todoCloneTitleElement.classList.add('text-success');
+      todoCloneContentElement.classList.add('text-dark-50');
+      todoCloneCardElement.classList.add('.bg-dark');
       //todoCloneTitleElement.classList.add("text-decoration-line-through");
       changeStatusIconElement.classList.add("bi-x-lg");
       updateStorage();
