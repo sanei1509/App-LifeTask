@@ -40,7 +40,7 @@ formularioRegistro.addEventListener("submit", function (e) {
     localStorage.setItem(correo, JSON.stringify(cuenta));
     alert("registrado correctamente");
     // redirigimos a Inicio de sesión
-    window.location.pathname = "/login.html";
+    window.location.href = "/login.html";
   } else {
     alert("Las claves no coinciden");
   }

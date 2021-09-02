@@ -27,7 +27,7 @@ formularioLogin.addEventListener("submit", function (e) {
     localStorage.setItem("userTareas", tareas);
 
     // Mandamos al usuario a la HOME
-    window.location.pathname = "/home.html";
+    window.location.href = "/home.html";
   } else {
     console.log("datosIncorrectos");
   }
