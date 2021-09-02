@@ -19,14 +19,14 @@
     <link rel="stylesheet" href="styles/general.css" />
     <link rel="stylesheet" href="styles/stats.css" />
 
-    <title>Tasky</title>
+    <title>LifeTask</title>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          Tasky <i class="bi bi-check2-circle"></i>
+        <a class="navbar-brand" href="home.html">
+          LifeTask <i class="bi bi-journal-check"></i>
         </a>
 
         <button
@@ -42,25 +42,27 @@
         <div class="navbar-collapse collapse" id="navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link" href="home.html">Home</a>
+              <a class="nav-link active" href="home.html">Mis tareas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="stats.html">Estadísticas</a>
+              <a class="nav-link" href="stats.html">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="preferences.html">Preferencias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Salir</a>
+              <a class="nav-link text-danger float-end" href="indexL.html"
+                >Cerrar sesión</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <main class="container w-100 pt-3 mt-5 mb-5">
-      <div class="bg-dark p-4 rounded d-flex">
-        <div class="container w-50">
+    <main class="container w-100 pt-3 mt-5 mb-5 ">
+      <div class="bg-dark p-4 rounded d-lg-flex">
+        <div class="container lg-w-50">
           <canvas
             id="barChart"
             class="mb-5"
@@ -68,7 +70,7 @@
             height="200px"
           ></canvas>
         </div>
-        <div class="container w-50">
+        <div class="container lg-w-50">
           <canvas id="lineChart" width="200px" height="200px"> </canvas>
         </div>
       </div>
@@ -99,6 +101,9 @@
     <!-- Custom scripts -->
     <script src="scripts/general.js"></script>
     <script>
+      //variables de datos para intentar usar
+      
+
       // Ejemplo grafica tipo "bar"
       const barCanvasContext = document
         .getElementById("barChart")
@@ -108,17 +113,14 @@
         type: "bar",
         data: {
           labels: [
-            "Lunes",
-            "Martes",
-            "Miércoles",
-            "Jueves",
-            "Viernes",
-            "Sábado",
+            "En general",
+            "Más importantes",
+            "Normales(media/baja)",
           ],
           datasets: [
             {
-              label: "Tareas completadas",
-              data: [20, 15, 17, 12, 7, 9],
+              label: "Tareas creadas",
+              data: [ 13, 6, 7],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",

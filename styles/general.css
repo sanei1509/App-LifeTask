@@ -50,3 +50,16 @@
   bottom: -20px;
   transition: all .4s ease-in-out;
 }
+
+.nav-item .nav-link{
+  transition: all .3s ease-in-out !important;
+}
+
+.nav-item:hover .nav-link{
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+}
+
+#todos-container{
+  transition: all .2s ease-in !important;
+}

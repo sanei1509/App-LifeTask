@@ -106,11 +106,6 @@ const PintarTareas = (dataUser) => {
      // 'Confirmamos los cambios'
      localStorage.setItem(userMail, JSON.stringify(dataLogin))
     });
-
-    // Agregamos evento que muestra las acciones cuando el mouse entra a la card
-    // todoCloneCardElement.addEventListener("mouseenter", () => {
-    //   todoCloneActionsElement.classList.remove("d-none");
-    // });
     todoCloneActionsElement.classList.remove("d-none");
 
 
@@ -129,19 +124,7 @@ const PintarTareas = (dataUser) => {
 
       todoCloneCardElement.classList.add('border-none');
     }
-    switch (tarea.priority) {
-      case 'Alta':
-        //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
-        break;
-      case 'Media':
-        //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
-        break;
-      case 'Baja':
-        //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
-        break;
-      default:
-        break;
-    }
+
         
     // Agregamos evento para cambiar el estado de una tarea (completa / no completa)
     todoCloneChangeTodoStatusButtonElement.addEventListener("click", () => {
@@ -353,6 +336,7 @@ function applyTypeFilter(filterType) {
         dataLoginHigh.push(tarea);
       })
       PintarTareas(dataHighConvert);
+      dataLoginHigh = [];
       break;
     case "NORMAL":
       // TODO: Aplicar filtro de tareas diarias
@@ -365,7 +349,7 @@ function applyTypeFilter(filterType) {
         dataLoginNormal.push(tarea);
       })
       PintarTareas(dataNormalConvert);
-      
+      dataLoginNormal = [];
       break;
     default:
       console.error("Filtro no soportado");

@@ -34,7 +34,7 @@
   <body onload="initialLoad()">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="home.html">
           LifeTask <i class="bi bi-journal-check"></i>
         </a>
 
@@ -161,18 +161,20 @@
           </div>
           <form action="" id="formulario_tareas" name="formTasks">
           <div class="modal-body">
-            <label>insertar título</label>
+            <label>TÍTULO</label>
             <input
               class="addTitle w-100"
               type="text"
               name="titulo"
               id="title-tarea"
+              placeholder="ej: 'correr' [campo obligatorio]"
             />
-            <label>insertar descripción</label>
+            <label>DESCRIPCIÓN</label>
             <textarea
               class="addDescription w-100"
               name="descripcion"
               id="description-tarea"
+              placeholder="ej: 'antes de las 5pm'"
             ></textarea>
 
             <div class="priority-container">
@@ -230,16 +232,18 @@
 
     <!-- Modal para ver y editar tareas -->
     <div class="modal fade" id="todo-view-modal">
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
             <h5
-              class="modal-title w-100"
+              class="modal-title w-75"
               contenteditable="true"
               data-placeholder="Escribe aqui el titulo de la tarea ..."
             >
               <!-- Titulo -->
             </h5>
+            <span class="text-black-50 bi-arrow-90deg-left">  modifica el titulo</span>
+
             <button
               type="button"
               class="btn-close"
@@ -278,38 +282,6 @@
                 </div>
               </div>
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="header-panel-sub-tasks">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#sub-tasks-collapse"
-                    aria-expanded="false"
-                    aria-controls="sub-tasks-collapse"
-                  >
-                    Sub-tareas
-                  </button>
-                </h2>
-
-                <div
-                  id="sub-tasks-collapse"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="header-panel-sub-tasks"
-                >
-                  <div class="accordion-body">
-                    <button
-                      class="btn btn-primary btn-sm mb-3 btn-create-sub-task"
-                      type="button"
-                    >
-                      Crear sub-tarea
-                    </button>
-                    <div class="modal-subtask-container rounded">
-                      <!-- Lista de sub-tareas -->
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header" id="header-panel-location">
