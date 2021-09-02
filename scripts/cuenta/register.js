@@ -38,7 +38,7 @@ formularioRegistro.addEventListener("submit", function (e) {
     console.log(cuenta);
 
     localStorage.setItem(correo, JSON.stringify(cuenta));
-    alert(localStorage.getItem(cuenta.correo) + "registrado correctamente");
+    alert("registrado correctamente");
     // redirigimos a Inicio de sesión
     window.location.pathname = "/login.html";
   } else {
